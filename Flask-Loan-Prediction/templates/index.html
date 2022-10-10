@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Loan eligibility Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="{{url_for('static', filename='style.css')}}" rel="stylesheet">
+    
+</head>
+
+<body>
+
+    <div class="jumbotron jumbotron-fluid  text-white text-center" style="background-color:dimgray;" >
+        <div class="container">
+            <h1 id="hea">Loan eligibility Prediction</h1>
+            <P class="lead py-2">
+                Please Fill the information bellow to get your loan prediction
+            </P>
+        </div>
+    </div>
+    </nav>
+    <section>
+        <div>
+
+        </div>
+        <div class="container text-center" id="prev">
+            <h2 class="display-6 text-center" style="color:red ;">{{result}}</h2>
+            <br>
+
+
+        </div>
+        <br>
+        <div class="container mb-3 py-6">
+            <div>
+                <h6 style="color:red">**Please fill all the required parameters </h6>
+            </div>
+            <form method="POST" action="/predict">
+                <div class="form-group">
+                    <label for="CreditGrade">Choose Your Credit Grade </label>
+                    <ul>
+                        <li>0 : A</li>
+                        <li>1 : AA</li>
+                        <li>2 : B</li>
+                        <li>3 : C</li>
+                        <li>4 : D</li>
+                        <li>5 : E</li>
+                        <li>6 : HR</li>
+                        <li>7 : NC</li>
+                        <li>8 : Not Available</li>
+                    </ul>
+                    <select class="form-control" id="CreditGrade" style="width:470px;" id="CreditGrade" name="CreditGrade"
+                            required>
+                        <option>0 </option>
+                        <option>1 </option>
+                        <option>2 </option>
+                        <option>3 </option>
+                        <option>4 </option>
+                        <option>5 </option>
+                        <option>6 </option>
+                        <option>7 </option>
+                        <option>8 </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="AvailableBankcardCredit">Enter your Available Bankcard Credit  </label>
+                    <input type="AvailableBankcardCredit" class="form-control" style="width:470px;" id="AvailableBankcardCredit" name="AvailableBankcardCredit" placeholder="IN DOLLARS"
+                           required>
+                </div>
+                <div class="form-group">
+                    <label for="StatedMonthlyIncome">Enter your Monthly Income</label>
+                    <input type="StatedMonthlyIncome" class="form-control" style="width:470px;" id="StatedMonthlyIncome" name="StatedMonthlyIncome" placeholder="IN DOLLARS"
+                           required>
+                </div>
+                <div class="form-group">
+                    <label for="DebtToIncomeRatio">Enter Yout Debt To Income Ratio</label>
+                    <input type="DebtToIncomeRatio" class="form-control" style="width:470px;" id="DebtToIncomeRatio" name="DebtToIncomeRatio" placeholder="Example: 0.5"
+                           required>
+                </div>
+                <div class="form-group">
+                    <label for="LoanOriginalAmount">Enter the Loan Original Amount</label>
+                    <input type="LoanOriginalAmount" class="form-control" style="width:470px;" id="LoanOriginalAmount" name="LoanOriginalAmount" placeholder="Example: 200000"
+                           required>
+                </div>
+                <div class="form-group">
+                    <label for="MonthlyLoanPayment">Enter your Monthly Loan Payment</label>
+                    <input type="MonthlyLoanPayment" class="form-control" style="width:470px;" id="MonthlyLoanPayment" name="MonthlyLoanPayment" placeholder="Example: 1000"
+                           required>
+                </div>
+                <div class="form-group">
+                    <label for="LP_InterestandFees">Enter your interests and fees</label>
+                    <input type="LP_InterestandFees" class="form-control" style="width:470px;" id="LP_InterestandFees" name="LP_InterestandFees" placeholder="IN DOLLORS"
+                           required>
+                </div>
+                <div class="form-group">
+                    <label for="LP_CollectionFees">Enter the collection fees</label>
+                    <input type="LP_CollectionFees" class="form-control" style="width:470px;" id="LP_CollectionFees" name="LP_CollectionFees" placeholder="IN DOLLORS"
+                           required>
+                </div>
+                <div class="form-group">
+                    <label for="LP_CustomerPayments">Enter your customer payments</label>
+                    <input type="LP_CustomerPayments" class="form-control" style="width:470px;" id="LP_CustomerPayments" name="LP_CustomerPayments" placeholder="IN DOLLORS"
+                           required>
+                </div>
+                <center><button class="btn btn-primary" style="background-color:green ; border-color: green;" type="submit">Predict</button></center>
+            </form>
+        </div>
+    </section>
+    
+    <div class="jumbotron jumbotron-fluid  text-white text-center" style="background-color:dimgray;">
+        <h5 class='text-center'>&copy Technocolabs Softwares<h6 class="text-center">Data Scientists Interns</h6></h5>  
+        
+        <br>
+    </div>
+</body>
+
+</html>
